@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django import dispatch
 
 designedform_submit = dispatch.Signal(providing_args=["designed_form"])

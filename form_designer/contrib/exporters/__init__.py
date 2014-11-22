@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from form_designer import settings
 from form_designer.templatetags.friendly import friendly
 from django.db.models import Count

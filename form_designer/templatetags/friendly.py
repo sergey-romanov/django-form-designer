@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django import template
 from django.db.models.query import QuerySet
 from django.utils.translation import ugettext_lazy as _

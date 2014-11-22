@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from form_designer import settings as app_settings
 from django.core.files.base import File
 from django.forms.forms import NON_FIELD_ERRORS

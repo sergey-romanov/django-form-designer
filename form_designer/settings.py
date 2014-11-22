@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import os.path
 
 from django.conf import settings
@@ -17,9 +18,9 @@ FIELD_CLASSES = getattr(settings, 'FORM_DESIGNER_FIELD_CLASSES', (
     ('django.forms.DateTimeField', _('Date & time')),
     ('django.forms.TimeField', _('Time')),
     ('django.forms.ChoiceField', _('Choice')),
-    ('django.forms.MultipleChoiceField', _('Multiple Choice')),
-    ('django.forms.ModelChoiceField', _('Model Choice')),
-    ('django.forms.ModelMultipleChoiceField', _('Model Multiple Choice')),
+    #('django.forms.MultipleChoiceField', _('Multiple Choice')),
+    #('django.forms.ModelChoiceField', _('Model Choice')),
+    #('django.forms.ModelMultipleChoiceField', _('Model Multiple Choice')),
     ('django.forms.RegexField', _('Regex')),
     ('django.forms.FileField', _('File')),
     # ('captcha.fields.CaptchaField', _('Captcha')),
@@ -45,6 +46,7 @@ FORM_TEMPLATES = getattr(settings, 'FORM_DESIGNER_FORM_TEMPLATES', (
     ('html/formdefinition/forms/as_table_h.html', _('as table (horizontal)')),
     ('html/formdefinition/forms/as_ul.html', _('as unordered list')),
     ('html/formdefinition/forms/custom.html', _('custom implementation')),
+    ('html/formdefinition/forms/bs3_horizontal.html', _('bootstrap3 horizontal form')),
 ))
 
 # Sequence of two-tuples like (('your_app.models.ModelName', 'My Model'), ...) for limiting the models available to ModelChoiceField and ModelMultipleChoiceField.

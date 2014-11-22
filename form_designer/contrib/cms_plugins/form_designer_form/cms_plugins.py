@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from form_designer.contrib.cms_plugins.form_designer_form.models import CMSFormDefinition
 from form_designer.views import process_form
 from form_designer import settings

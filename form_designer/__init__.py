@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 try:
     from south.modelsinspector import add_introspection_rules
 except ImportError:

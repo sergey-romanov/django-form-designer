@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from form_designer.contrib.exporters import FormLogExporterBase
 from form_designer import settings
 from django.utils.translation import ugettext_lazy as _
