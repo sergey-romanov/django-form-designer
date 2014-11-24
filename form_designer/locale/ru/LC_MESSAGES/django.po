@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-22 04:43+0400\n"
-"PO-Revision-Date: 2014-11-22 03:43+0300\n"
+"POT-Creation-Date: 2014-11-24 13:48+0400\n"
+"PO-Revision-Date: 2014-11-24 13:51+0300\n"
 "Last-Translator: 1 <1>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -424,18 +424,6 @@ msgstr "Время"
 msgid "Choice"
 msgstr "Выбор"
 
-#: settings.py:21
-msgid "Multiple Choice"
-msgstr "Множественный выбор"
-
-#: settings.py:22
-msgid "Model Choice"
-msgstr "Выбор из данных модели"
-
-#: settings.py:23
-msgid "Model Multiple Choice"
-msgstr "Множественный выбор из данных модели"
-
 #: settings.py:25
 msgid "File"
 msgstr "Файл"
@@ -481,8 +469,12 @@ msgid "custom implementation"
 msgstr "пользовательское"
 
 #: settings.py:49
-msgid "bootstrap3"
-msgstr "bootstrap3"
+msgid "bootstrap3 horizontal form"
+msgstr "Горизонтальная форма (bootstrap)"
+
+#: settings.py:50
+msgid "bootstrap3 horizontal (6 | 6) form"
+msgstr "Горизонтальная форма (bootstrap 6 | 6)"
 
 #: uploads.py:23
 msgid "This field is required."
@@ -526,7 +518,8 @@ msgstr "форма"
 msgid "ID"
 msgstr "ID"
 
-#: templates/html/formdefinition/forms/bootstrap3.html:16
+#: templates/html/formdefinition/forms/bs3_horizontal.html:16
+#: templates/html/formdefinition/forms/bs3_horizontal_6_6.html:16
 msgid "Warning!"
 msgstr "Внимание!"
 
@@ -541,3 +534,15 @@ msgstr "да"
 #: templatetags/friendly.py:21
 msgid "no"
 msgstr "нет"
+
+#~ msgid "Multiple Choice"
+#~ msgstr "Множественный выбор"
+
+#~ msgid "Model Choice"
+#~ msgstr "Выбор из данных модели"
+
+#~ msgid "Model Multiple Choice"
+#~ msgstr "Множественный выбор из данных модели"
+
+#~ msgid "bootstrap3"
+#~ msgstr "bootstrap3"

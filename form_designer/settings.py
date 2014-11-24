@@ -47,6 +47,7 @@ FORM_TEMPLATES = getattr(settings, 'FORM_DESIGNER_FORM_TEMPLATES', (
     ('html/formdefinition/forms/as_ul.html', _('as unordered list')),
     ('html/formdefinition/forms/custom.html', _('custom implementation')),
     ('html/formdefinition/forms/bs3_horizontal.html', _('bootstrap3 horizontal form')),
+    ('html/formdefinition/forms/bs3_horizontal_6_6.html', _('bootstrap3 horizontal (6 | 6) form')),
 ))
 
 # Sequence of two-tuples like (('your_app.models.ModelName', 'My Model'), ...) for limiting the models available to ModelChoiceField and ModelMultipleChoiceField.
