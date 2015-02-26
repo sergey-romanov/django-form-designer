@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-24 13:48+0400\n"
-"PO-Revision-Date: 2014-11-24 13:51+0300\n"
+"POT-Creation-Date: 2015-02-26 12:11+0400\n"
+"PO-Revision-Date: 2015-02-26 12:13+0300\n"
 "Last-Translator: 1 <1>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -519,9 +519,16 @@ msgid "ID"
 msgstr "ID"
 
 #: templates/html/formdefinition/forms/bs3_horizontal.html:16
+#: templates/html/formdefinition/forms/bs3_horizontal.html:28
 #: templates/html/formdefinition/forms/bs3_horizontal_6_6.html:16
+#: templates/html/formdefinition/forms/bs3_horizontal_6_6.html:28
 msgid "Warning!"
 msgstr "Внимание!"
+
+#: templates/html/formdefinition/forms/bs3_horizontal.html:21
+#: templates/html/formdefinition/forms/bs3_horizontal_6_6.html:21
+msgid "Success!"
+msgstr "Успешно!"
 
 #: templates/html/formdefinition/forms/includes/submit.html:2
 msgid "Submit"
