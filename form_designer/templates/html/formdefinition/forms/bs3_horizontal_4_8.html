@@ -42,8 +42,8 @@
             {% if not field.is_hidden %}
                 <div class="form-group{% if field.errors %} has-error{% elif form.is_bound %} has-success{% endif %} has-feedback">
                     {% if field.field|field_type != 'BooleanField' %}
-                        <label class="col-sm-3 control-label" for="{{ field.id_for_label }}">{{ field.label }}{% if field.field.required %}<small>*</small>{% endif %}</label>
-                        <div class="col-sm-9">
+                        <label class="col-sm-4 control-label" for="{{ field.id_for_label }}">{{ field.label }}{% if field.field.required %}<small>*</small>{% endif %}</label>
+                        <div class="col-sm-8">
                         {% if field.field.widget.input_type == 'text' %}
                             <input class="form-control" type="text" id="{{ field.id_for_label }}" name="{{ field.html_name }}" placeholder="{{ field.label }}"{% if field.value %} value="{{ field.value }}"{% endif %}>
                             <span class="fa{% if field.errors %} fa-warning{% elif billing_address.is_bound %} fa-check{% endif %} form-control-feedback"></span>
@@ -67,7 +67,7 @@
                         {% endif %}
                         </div>
                     {% else %}
-                        <div class="col-sm-offset-3 col-sm-9">
+                        <div class="col-sm-offset-4 col-sm-8">
                             <div class="checkbox">
                                 <label><input type="checkbox"id="{{ field.id_for_label }}" name="{{ field.html_name }}">&nbsp;{{ field.label }}</label>
                                 {% if field.errors %}
@@ -82,7 +82,7 @@
             {% endif %}
         {% endfor %}
         <div class="form-group">
-            <div class="col-sm-offset-9 col-sm-9">
+            <div class="col-sm-offset-4 col-sm-8">
             {% include "html/formdefinition/forms/includes/submit.html" %}
             </div>
         </div>
