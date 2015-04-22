@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-26 12:11+0400\n"
-"PO-Revision-Date: 2015-02-26 12:13+0300\n"
+"POT-Creation-Date: 2015-04-22 17:46+0400\n"
+"PO-Revision-Date: 2015-04-22 16:47+0300\n"
 "Last-Translator: 1 <1>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -450,31 +450,39 @@ msgstr "Радио кнопка"
 
 #: settings.py:44
 msgid "as paragraphs"
-msgstr "как параграф"
+msgstr "В виде параграфа"
 
 #: settings.py:45
 msgid "as table"
-msgstr "как таблица"
+msgstr "В виде таблицы"
 
 #: settings.py:46
 msgid "as table (horizontal)"
-msgstr "как таблица (горизонтальная)"
+msgstr "В виде горизонтальной таблицы"
 
 #: settings.py:47
 msgid "as unordered list"
-msgstr "как список"
+msgstr "В виде списка"
 
 #: settings.py:48
 msgid "custom implementation"
-msgstr "пользовательское"
+msgstr "Пользовательский"
 
 #: settings.py:49
 msgid "bootstrap3 horizontal form"
-msgstr "Горизонтальная форма (bootstrap)"
+msgstr "Горизонтальная форма"
 
 #: settings.py:50
 msgid "bootstrap3 horizontal (6 | 6) form"
-msgstr "Горизонтальная форма (bootstrap 6 | 6)"
+msgstr "Горизонтальная форма (6|6 колонок)"
+
+#: settings.py:51
+msgid "bootstrap3 horizontal (4 | 8) form"
+msgstr "Горизонтальная форма (4|8 колонок)"
+
+#: settings.py:52
+msgid "bootstrap3 modal form"
+msgstr "Всплывающее окно"
 
 #: uploads.py:23
 msgid "This field is required."
@@ -520,14 +528,23 @@ msgstr "ID"
 
 #: templates/html/formdefinition/forms/bs3_horizontal.html:16
 #: templates/html/formdefinition/forms/bs3_horizontal.html:28
+#: templates/html/formdefinition/forms/bs3_horizontal_4_8.html:16
+#: templates/html/formdefinition/forms/bs3_horizontal_4_8.html:28
 #: templates/html/formdefinition/forms/bs3_horizontal_6_6.html:16
 #: templates/html/formdefinition/forms/bs3_horizontal_6_6.html:28
+#: templates/html/formdefinition/forms/bs3_modal.html:41
+#: templates/html/formdefinition/forms/bs3_modal.html:48
 msgid "Warning!"
 msgstr "Внимание!"
 
 #: templates/html/formdefinition/forms/bs3_horizontal.html:21
+#: templates/html/formdefinition/forms/bs3_horizontal_4_8.html:21
 #: templates/html/formdefinition/forms/bs3_horizontal_6_6.html:21
 msgid "Success!"
+msgstr "Успешно!"
+
+#: templates/html/formdefinition/forms/bs3_modal.html:10
+msgid "Success"
 msgstr "Успешно!"
 
 #: templates/html/formdefinition/forms/includes/submit.html:2

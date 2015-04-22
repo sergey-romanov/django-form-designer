@@ -1,0 +1,98 @@
+{% load i18n cms_tags sekizai_tags friendly widget_type %}
+<a href="#" class="modal_link" data-toggle="modal" data-target="#myModal{{ form_definition.name }}">{{ form_definition.title }}</a>
+{% if form %}
+    <!-- Modal -->
+    <div class="modal fade" id="myModal{{ form_definition.name }}" tabindex="-1" role="dialog" aria-labelledby="myModal{{ form_definition.name }}Label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                {% if form_definition.body %}
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h3 class="modal-title" id="myModal{{ form_definition.name }}Label">{{ form_definition.body|linebreaksbr }}</h3>
+                    </div>
+                {% endif %}
+                <div class="modal-body form-body" id="form-body">
+                    <form  class="form-horizontal designer_form" role="form" name="{{ form_definition.name }}" action="{{ form_definition.action }}" method="{{ form_definition.method }}" enctype="multipart/form-data">
+                        <div class="row">
+                            {% if form_error %}
+                                <div class="alert alert-danger fade in">
+                                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                    <strong>{% trans "Warning!" %}</strong> {{ form_definition.error_message }}
+                                </div>
+                            {% elif form_success %}
+                                <div class="alert alert-success fade in">
+                                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                    <strong>{% trans "Success!" %}</strong> {{ form_definition.success_message }}
+                                </div>
+                            {% endif %}
+
+                            {% for error in form.non_field_errors %}
+                                <div class="alert alert-danger fade in">
+                                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                    <strong>{% trans "Warning!" %}</strong> {{ error }}
+                                </div>
+                            {% endfor %}
+                            {% for field in form %}
+                                {% if not field.is_hidden %}
+                                    <div class="form-group{% if field.errors %} has-error{% elif form.is_bound %} has-success{% endif %} has-feedback">
+                                        {% if field.field|field_type != 'BooleanField' %}
+                                            <label class="col-sm-3 control-label" for="{{ field.id_for_label }}">{{ field.label }}{% if field.field.required %}<small>*</small>{% endif %}</label>
+                                            <div class="col-sm-9">
+                                            {% if field.field.widget.input_type == 'text' %}
+                                                <input class="form-control" type="text" id="{{ field.id_for_label }}" name="{{ field.html_name }}" placeholder="{{ field.label }}"{% if field.value %} value="{{ field.value }}"{% endif %}>
+                                                <span class="fa{% if field.errors %} fa-warning{% elif billing_address.is_bound %} fa-check{% endif %} form-control-feedback"></span>
+                                            {% elif field.field.widget.choices %}
+                                                <select class="form-control"  id="{{ field.id_for_label }}" name="{{ field.html_name }}">
+                                                {% for choice in field.field.widget.choices %}
+                                                    <option value="{{ choice.0 }}"{% if forloop.counter == 1 %} selected="selected"{% endif %}>{{ choice.1 }}</option>
+                                                {% endfor %}
+                                                </select>
+                                            {% elif field.field|field_type == 'FileField' %}
+                                                <input class="btn btn-default btn-md" type="file" id="{{ field.id_for_label }}" name="{{ field.html_name }}" {% if field.value %} value="{{ field.value }}"{% endif %}>
+                                            {% elif field.field.widget.attrs %}
+                                                <textarea style="width: 100%; height: 180px" cols="{{ field.field.widget.attrs.cols }}" id="{{ field.id_for_label }}" name="{{ field.html_name }}" rows="{{ field.field.widget.attrs.rows }}">{% if field.value %}{{ field.value }}{% endif %}</textarea>
+                                            {% else %}
+                                                {{ field }}
+                                            {% endif %}
+                                            {% if field.errors %}
+                                                <span class="help-block">{{ field.errors.0 }}</span>
+                                            {% else %}
+                                                {% if field.help_text %}<span class="help-block">{{ field.help_text|safe }}</span>{% endif %}
+                                            {% endif %}
+                                            </div>
+                                        {% else %}
+                                            <div class="col-sm-offset-3 col-sm-9">
+                                                <div class="checkbox">
+                                                    <label><input type="checkbox"id="{{ field.id_for_label }}" name="{{ field.html_name }}">&nbsp;{{ field.label }}</label>
+                                                    {% if field.errors %}
+                                                        <span class="help-block">{{ field.errors.0 }}</span>
+                                                    {% else %}
+                                                        {% if field.help_text %}<span class="help-block">{{ field.help_text|safe }}</span>{% endif %}
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                            <div class="col-lg-4-md-4 col-sm-4">
+                                {% include "html/formdefinition/forms/includes/submit.html" %}
+                            </div>
+                            {% for field in form.hidden_fields %}
+                                {{ field }}
+                            {% endfor %}
+                            {% csrf_token %}
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div><!-- /.modal -->
+    {% if form_error or form_success %}
+        <script type="text/javascript">
+            $(function() {
+                $('#myModal{{ form_definition.name }}').modal('show')
+            });
+        </script>
+    {% endif %}
+{% endif %}
