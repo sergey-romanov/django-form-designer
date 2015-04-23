@@ -11,8 +11,8 @@
                         <h3 class="modal-title" id="myModal{{ form_definition.name }}Label">{{ form_definition.body|linebreaksbr }}</h3>
                     </div>
                 {% endif %}
-                <div class="modal-body form-body" id="form-body">
-                    <form  class="form-horizontal designer_form" role="form" name="{{ form_definition.name }}" action="{{ form_definition.action }}" method="{{ form_definition.method }}" enctype="multipart/form-data">
+                <form  class="form-horizontal designer_form" role="form" name="{{ form_definition.name }}" action="{{ form_definition.action }}" method="{{ form_definition.method }}" enctype="multipart/form-data">
+                    <div class="modal-body form-body" id="form-body">
                         {% if form_error %}
                             <div class="alert alert-danger fade in">
                                 <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -74,15 +74,15 @@
                                 </div>
                             {% endif %}
                         {% endfor %}
-                        <div class="modal-footer">
-                            {% include "html/formdefinition/forms/includes/submit.html" %}
-                        </div>
-                        {% for field in form.hidden_fields %}
-                            {{ field }}
-                        {% endfor %}
-                        {% csrf_token %}
-                    </form>
-                </div>
+                    </div>
+                    <div class="modal-footer">
+                        {% include "html/formdefinition/forms/includes/submit.html" %}
+                    </div>
+                    {% for field in form.hidden_fields %}
+                        {{ field }}
+                    {% endfor %}
+                    {% csrf_token %}
+                </form>
             </div>
         </div>
     </div><!-- /.modal -->
