@@ -50,7 +50,7 @@
                         {% elif field.field.widget.choices %}
                             <select class="form-control"  id="{{ field.id_for_label }}" name="{{ field.html_name }}">
                             {% for choice in field.field.widget.choices %}
-                                <option value="{{ choice.0 }}"{% if forloop.counter == 1 %} selected="selected"{% endif %}>{{ choice.1 }}</option>
+                                <option value="{{ choice.0 }}"{% ifequal field.value|stringformat:"s" choice.0|stringformat:"s" %} selected="selected"{% endifequal %}>{{ choice.1 }}</option>
                             {% endfor %}
                             </select>
                         {% elif field.field|field_type == 'FileField' %}
