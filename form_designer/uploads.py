@@ -7,10 +7,20 @@ from django.db.models.fields.files import FieldFile
 from django.template.defaultfilters import filesizeformat
 import os
 import hashlib, uuid
+from pytils.translit import slugify
 
 
 def get_storage():
     return app_settings.FILE_STORAGE_CLASS()
+
+
+def get_uploaded_file_name(filename):
+    if filename:
+        i = filename.rfind('.')
+        uploaded_file = '%s%s' % (slugify(filename[:i]), filename[i:])
+    else:
+        uploaded_file = None
+    return uploaded_file
 
 
 def clean_files(form):
@@ -25,7 +35,7 @@ def clean_files(form):
                 continue
         else:
             total_upload_size += uploaded_file._size
-            if not os.path.splitext(uploaded_file.name)[1].lstrip('.').lower() in  \
+            if not os.path.splitext(get_uploaded_file_name(uploaded_file.name))[1].lstrip('.').lower() in  \
                 app_settings.ALLOWED_FILE_TYPES:
                     msg = _('This file type is not allowed.')
             elif uploaded_file._size > app_settings.MAX_UPLOAD_SIZE:
@@ -56,7 +66,7 @@ def handle_uploaded_files(form_definition, form):
             uploaded_file = form.cleaned_data.get(field.name, None)
             if uploaded_file is None:
                 continue
-            valid_file_name = storage.get_valid_name(uploaded_file.name)
+            valid_file_name = storage.get_valid_name(get_uploaded_file_name(uploaded_file.name))
             root, ext = os.path.splitext(valid_file_name)
             filename = storage.get_available_name(
                 os.path.join(app_settings.FILE_STORAGE_DIR, 
