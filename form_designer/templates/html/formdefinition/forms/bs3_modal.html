@@ -19,10 +19,7 @@
                                 <strong>{% trans "Warning!" %}</strong> {{ form_definition.error_message }}
                             </div>
                         {% elif form_success %}
-                            <div class="alert alert-success fade in">
-                                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                                <strong>{% trans "Success!" %}</strong> {{ form_definition.success_message }}
-                            </div>
+                            <h5>{{ form_definition.success_message }}</h5>
                         {% endif %}
 
                         {% for error in form.non_field_errors %}
@@ -31,6 +28,7 @@
                                 <strong>{% trans "Warning!" %}</strong> {{ error }}
                             </div>
                         {% endfor %}
+                        {% if not form_success %}
                         {% for field in form %}
                             {% if not field.is_hidden %}
                                 <div class="form-group{% if field.errors %} has-error{% elif form.is_bound %} has-success{% endif %} has-feedback">
@@ -74,9 +72,14 @@
                                 </div>
                             {% endif %}
                         {% endfor %}
+                        {% endif %}
                     </div>
                     <div class="modal-footer">
+                        {% if not form_success %}
                         {% include "html/formdefinition/forms/includes/submit.html" %}
+                        {% else %}
+                        <input type="button" data-dismiss="modal" aria-hidden="true" class="btn btn-primary" value="{% trans "Close" %}" />
+                        {% endif %}
                     </div>
                     {% for field in form.hidden_fields %}
                         {{ field }}
