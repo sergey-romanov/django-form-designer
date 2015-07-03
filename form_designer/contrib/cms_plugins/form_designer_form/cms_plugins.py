@@ -16,6 +16,7 @@ class FormDesignerPlugin(CMSPluginBase):
     admin_preview = False
     render_template = False
     cache = False
+    text_enabled = True
 
     def render(self, context, instance, placeholder):
         if instance.form_definition.form_template_name:
