@@ -1,5 +1,5 @@
 {% load i18n cms_tags sekizai_tags friendly widget_type %}
-<a href="#" class="modal_link" data-toggle="modal" id="myModal{{ form_definition.name }}_link" data-target="#myModal{{ form_definition.name }}">{{ form_definition.title }}</a>
+{% if form_definition.title %}<a href="#" class="modal_link" data-toggle="modal" id="myModal{{ form_definition.name }}_link" data-target="#myModal{{ form_definition.name }}">{{ form_definition.title }}</a>{% endif %}
 {% if form %}
     <!-- Modal -->
     <div class="modal fade" id="myModal{{ form_definition.name }}" tabindex="-1" role="dialog" aria-labelledby="myModal{{ form_definition.name }}Label" aria-hidden="true">
